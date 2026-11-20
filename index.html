@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Looking for a Course — Directorio y Mapa de Cursos</title>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <!-- Logotipo: escuela en 2D al centro rodeada de símbolos de aprendizaje -->
+      <svg class="logo-svg" viewBox="0 0 64 64" width="44" height="44" aria-hidden="true">
+        <circle cx="32" cy="32" r="29" fill="#eef4ff" stroke="#1d4ed8" stroke-width="2" />
+        <!-- Escuela 2D al centro -->
+        <rect x="21" y="25" width="22" height="15" rx="1.5" fill="#1d4ed8" />
+        <polygon points="19,25 32,16 45,25" fill="#0f766e" />
+        <rect x="29" y="32" width="6" height="8" fill="#ffffff" />
+        <!-- Símbolos alrededor: libro, números, nota musical, tecnología -->
+        <rect x="7" y="14" width="10" height="7" rx="1" fill="#2563eb" />
+        <text x="45" y="15" font-size="9" font-weight="bold" fill="#0f766e">123</text>
+        <circle cx="12" cy="48" r="3" fill="#0d9488" />
+        <rect x="46" y="43" width="10" height="7" rx="1.5" fill="#1e40af" />
+      </svg>
+      <div>
+        <h1>Looking for a Course</h1>
+        <p class="subtitle">Directorio educativo con mapa interactivo en México</p>
+      </div>
+    </div>
+    <span class="badge-sin-cuenta">Consulta abierta · Sin registro</span>
+  </header>
+
+  <section class="search-bar">
+    <input
+      id="buscador"
+      type="text"
+      placeholder="Buscar curso (ej. inglés, programación, examen, música...)"
+    />
+    <select id="filtro-categoria">
+      <option value="">Todas las categorías</option>
+      <option value="Preparación académica">Preparación académica</option>
+      <option value="Idiomas">Idiomas</option>
+      <option value="Programación">Programación</option>
+      <option value="Música y artes">Música y artes</option>
+    </select>
+    <select id="filtro-modalidad">
+      <option value="">Todas las modalidades</option>
+      <option value="Presencial">Presencial</option>
+      <option value="En línea">En línea</option>
+      <option value="Mixta">Mixta</option>
+    </select>
+    <button id="btn-limpiar" type="button">Limpiar</button>
+  </section>
+
+  <main class="workspace">
+    <section class="map-panel">
+      <div class="panel-header">
+        <h2>Mapa interactivo (México)</h2>
+        <button id="btn-ubicacion" type="button">Usar mi ubicación (opcional)</button>
+      </div>
+      <div id="map"></div>
+      <p id="estado-mapa" class="helper-text">
+        Haz clic en un marcador para ver el curso y su enlace oficial.
+      </p>
+    </section>
+
+    <section class="list-panel">
+      <div class="panel-header">
+        <h2>Cursos disponibles (<span id="total-cursos">0</span>)</h2>
+      </div>
+      <div id="lista-cursos" class="cards-container"></div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
